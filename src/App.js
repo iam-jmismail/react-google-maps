@@ -1,26 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component, Fragment } from "react";
+import "./App.css";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Container } from "react-bootstrap";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Chennai from "./components/Chennai";
+
+// Home Component
+class Home extends Component {
+  render() {
+    return (
+      <Fragment>
+        <Container className='py-4'>
+          <h2 className='text-secondary'> Google Maps</h2>
+          <p>Choose your city: </p>
+          <Link to='/chennai' className='btn btn-dark'>
+            Chennai
+          </Link>
+        </Container>
+      </Fragment>
+    );
+  }
+}
+
+// Main Component
+export class App extends Component {
+  render() {
+    return (
+      <Fragment>
+        <Router>
+          <Route exact path='/' component={Home} />
+          <Route exact path='/chennai' component={Chennai} />
+        </Router>
+      </Fragment>
+    );
+  }
 }
 
 export default App;
