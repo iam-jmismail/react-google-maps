@@ -8,6 +8,8 @@ import Chennai from "./components/Chennai";
 // Home Component
 class Home extends Component {
   render() {
+    console.log(process.env.REACT_APP_TEST);
+
     return (
       <Fragment>
         <Container className='py-4'>
